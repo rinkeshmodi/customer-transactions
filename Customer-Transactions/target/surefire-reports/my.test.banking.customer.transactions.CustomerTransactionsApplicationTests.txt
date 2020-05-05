@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: my.test.banking.customer.transactions.CustomerTransactionsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.901 s - in my.test.banking.customer.transactions.CustomerTransactionsApplicationTests

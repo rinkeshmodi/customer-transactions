@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: cutomer-transactions
+
+
+server:
+  port: 8085
+  error:
+    whitelabel:
+      enabled: false
+  servlet:
+    context-path: /cutomer-transactions
