@@ -1,7 +1,7 @@
 package my.test.banking.customer.transactions.dto;
 
-import java.math.BigDecimal;
-import java.util.concurrent.atomic.AtomicLong;
+
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class AccountDTO {
 
@@ -9,7 +9,17 @@ public class AccountDTO {
 
     private String customerName;
 
-    private AtomicLong amount;
+    private Long amount;
+
+    private ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
+
+    public ReentrantReadWriteLock getReentrantReadWriteLock() {
+        return reentrantReadWriteLock;
+    }
+
+    public void setReentrantReadWriteLock(ReentrantReadWriteLock reentrantReadWriteLock) {
+        this.reentrantReadWriteLock = reentrantReadWriteLock;
+    }
 
     public String getAccountNumber() {
         return accountNumber;
@@ -27,11 +37,11 @@ public class AccountDTO {
         this.customerName = customerName;
     }
 
-    public AtomicLong getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
-    public void setAmount(AtomicLong amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 }
