@@ -8,9 +8,6 @@ import my.test.banking.customer.transactions.repo.AccountsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.concurrent.atomic.AtomicLong;
-
 @Service
 public class AccountService {
 
@@ -18,12 +15,12 @@ public class AccountService {
     private AccountsRepo accountsRepo;
 
 
-    public AtomicLong checkBalance(String accountNumber) {
+    public Long checkBalance(String accountNumber) {
         return accountsRepo.getBalanceForAccountNumber(accountNumber);
     }
 
     public DepositMoneyResponseDTO depositMoney(DepositMoneyRequestDTO depositMoneyRequestDTO) {
-        accountsRepo.addMoney(depositMoneyRequestDTO.getAccountNumber(), depositMoneyRequestDTO.getAmount(), 0);
+        accountsRepo.addMoney(depositMoneyRequestDTO.getAccountNumber(), depositMoneyRequestDTO.getAmount());
         return new DepositMoneyResponseDTO();
     }
 
@@ -32,6 +29,6 @@ public class AccountService {
     }
 
     public void withdrawMoney(WithDrawMoneyRequestDTO withDrawMoneyRequestDTO) {
-        accountsRepo.withDrawMoney(withDrawMoneyRequestDTO.getAccountNumber(), withDrawMoneyRequestDTO.getAmount(), 0);
+        accountsRepo.withDrawMoney(withDrawMoneyRequestDTO.getAccountNumber(), withDrawMoneyRequestDTO.getAmount());
     }
 }

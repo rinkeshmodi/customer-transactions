@@ -20,8 +20,8 @@ public class CustomerTransactionsController {
 
 
     @GetMapping(value = "/check-balance", produces = { "application/json" })
-    public ResponseEntity<AtomicLong> checkBalance(@RequestParam String accountNumber) {
-        AtomicLong balanceAmount =  accountService.checkBalance(accountNumber);
+    public ResponseEntity<Long> checkBalance(@RequestParam String accountNumber) {
+        Long balanceAmount =  accountService.checkBalance(accountNumber);
         return new ResponseEntity<>(balanceAmount, HttpStatus.OK);
     }
 
